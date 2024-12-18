@@ -4,7 +4,8 @@ import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 import { Suspense } from 'react';
-import { RevenueChartSkeleton, LatestInvoicesSkeleton } from '@/app/ui/skeletons';
+import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton } from '@/app/ui/skeletons';
+import CardWrapper from '@/app/ui/dashboard/cards';
 
 export default async function Page() {
   const {
@@ -34,6 +35,9 @@ export default async function Page() {
         </Suspense>
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
+        </Suspense>
+        <Suspense fallback={<CardsSkeleton />}>
+          <CardWrapper />
         </Suspense>
       </div>
     </main>
